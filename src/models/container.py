@@ -1,6 +1,6 @@
-from sqlalchemy import Column, Integer, String, ForeignKey, Datetime, func
+from sqlalchemy import Column, Integer, String, ForeignKey, DateTime, func
 from sqlalchemy.orm import relationship
-
+from src.database.connection import Base
 
 class Container(Base):
     __tablename__ = "containers"
@@ -9,6 +9,6 @@ class Container(Base):
     number = Column(String, unique=True, index=True, nullable=False)
     type = Column(String, nullable=False)
     status = Column(String, nullable=False)
-    arrival_time = Column(Datetime, default=func.now())
+    arrival_time = Column(DateTime, default=func.now())
     zone_id = Column(Integer, ForeignKey("zones.id"), nullable=True)
-    zone = relationship("Zone", back_populates="containers")
+    zones = relationship("Zone", back_populates="container")
