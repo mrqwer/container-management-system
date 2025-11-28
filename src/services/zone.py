@@ -7,6 +7,9 @@ class ZoneService(BaseService):
         super().__init__(db)
         self.repo = ZoneRepository(db)
 
+    async def create_zone(self, schema):
+        return await self.repo.create(schema.model_dump())
+    
     async def list_zones(self):
         return await self.repo.get_all()
     
