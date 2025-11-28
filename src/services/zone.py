@@ -1,0 +1,17 @@
+from src.services.base_service import BaseService
+from sqlalchemy.ext import AsyncSession
+from src.repositories ZoneRepository
+
+class ZoneService(BaseService):
+    def __init__(self, db: AsyncSession):
+        super().__init__(db)
+        self.repo = ZoneRepository(db)
+
+    async def list_zones(self):
+        return await self.repo.get_all()
+    
+    async def get_by_id(self, zone_id: int):
+        return await self.repo.get_by_id(zone_id)
+        
+    async def update_load(self, zone, increment: int):
+        return await self.repo.update_load(zone, increment)
