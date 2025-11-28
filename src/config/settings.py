@@ -1,7 +1,11 @@
 import os
+from pathlib import Path
 from dotenv import load_dotenv
 
-load_dotenv()
+
+ROOT_PATH = Path(__file__).resolve().parents[2]
+load_dotenv(ROOT_PATH)
+
 
 class Settings:
     POSTGRES_USER: str = os.environ.get("POSTGRES_USER", "user")
