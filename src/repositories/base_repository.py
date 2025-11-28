@@ -1,4 +1,4 @@
-from sqlalchemy.ext import AsyncSession
+from sqlalchemy.ext.asyncio import AsyncSession
 
 
 class BaseRepository:

@@ -1,5 +1,5 @@
 from sqlalchemy import select
-from repositories.base_repository import BaseRepository
+from src.repositories.base_repository import BaseRepository
 from src.models import Container
 
 
