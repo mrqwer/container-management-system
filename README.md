@@ -76,3 +76,5 @@ make up
 ```bash
 make down
 ```
+
+затем обращаться по 
