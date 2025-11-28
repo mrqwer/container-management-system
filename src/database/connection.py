@@ -1,13 +1,14 @@
 import sys
 
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine, async_sessionmaker
+from sqlalchemy.orm import declarative_base
 from typing import Generator
 
 from contextlib import asynccontextmanager
 
 from src.config.settings import settings
-from src.models.base_model import Base
 
+Base = declarative_base()
 
 def create_engine_and_session():
     try:
@@ -30,18 +31,16 @@ def create_engine_and_session():
 async_engine, async_db_session = create_engine_and_session()
 
 
-@asynccontextmanager
-async def get_db() -> Generator[AsyncSession, None, None]:
-    from sqlalchemy import exc
-
+async def get_db():
     session: AsyncSession = async_db_session()
     try:
         yield session
-    except exc.SQLAlchemyError as error:
+    except:
         await session.rollback()
-        raise error
+        raise
     finally:
         await session.close()
+
 
 
 async def create_table():
