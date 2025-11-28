@@ -1,10 +1,9 @@
 from fastapi import HTTPException
-from sqlalchemy.ext import AsyncSession
+from sqlalchemy.ext.asyncio import AsyncSession
 
 from src.services.zone import ZoneService
 from src.services.container import ContainerService
 
-from src.schemas.zone import 
 from src.schemas.container import ContainerCreate
 
 class WarehouseService:

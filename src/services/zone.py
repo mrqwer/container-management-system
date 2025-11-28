@@ -1,6 +1,6 @@
 from src.services.base_service import BaseService
-from sqlalchemy.ext import AsyncSession
-from src.repositories ZoneRepository
+from sqlalchemy.ext.asyncio import AsyncSession
+from src.repositories import ZoneRepository
 
 class ZoneService(BaseService):
     def __init__(self, db: AsyncSession):

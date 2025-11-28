@@ -1,5 +1,5 @@
 from fastapi import HTTPException
-from sqlalchemy.ext import AsyncSession
+from sqlalchemy.ext.asyncio import AsyncSession
 from src.services.base_service import BaseService
 from src.schemas import ContainerCreate
 from src.repositories import ContainerRepository
