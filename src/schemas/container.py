@@ -1,12 +1,19 @@
 from typing import Optional
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict
+from enum import Enum
+
+
+class ContainerStatus(str, Enum):
+    NEW = "new"
+    STORED = "stored"
+    SHIPPED = "shipped"
 
 
 class ContainerBase(BaseModel):
     number: str
     type: str
-    status: str = "new"
+    status: ContainerStatus = ContainerStatus.NEW
 
 
 class ContainerCreate(ContainerBase):

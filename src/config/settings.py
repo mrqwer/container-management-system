@@ -10,7 +10,7 @@ load_dotenv(ROOT_PATH)
 class Settings:
     POSTGRES_USER: str = os.environ.get("POSTGRES_USER", "user")
     POSTGRES_PASSWORD: str = os.environ.get("POSTGRES_PASSWORD", "password")
-    POSTGRES_HOST: str = os.environ.get("POSTGRES_HOST", "db") 
+    POSTGRES_HOST: str = os.environ.get("POSTGRES_HOST", "postgres")
     POSTGRES_PORT: str = os.environ.get("POSTGRES_PORT", "5432")
     POSTGRES_DB: str = os.environ.get("POSTGRES_DB", "warehouse")
     DB_ECHO_LOG: bool = False
@@ -24,3 +24,4 @@ class Settings:
 
 
 settings = Settings()
+
